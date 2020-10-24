@@ -128,47 +128,6 @@
         </div>
         <div class="links-comments">
             
-                <div class="comments-container">
-    
-        
-    <div class="valine-container">
-        <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
-        <div id="vcomments"></div>
-        <script>
-            new Valine({
-                el: '#vcomments',
-                appId: '917IE2P4nr8spwIspuvdVCHs-gzGzoHsz',
-                appKey: 'jBIhfUkfOkYOi2Xab0Uz3TWV',
-                meta: 'nick,mail'.split(','),
-                avatar: 'wavatar',
-                enableQQ: true,
-                placeholder: '说点什么吧...',
-                lang: 'zh-CN'.toLowerCase()
-            });
-
-
-            // Valine 评论列表增加"作者"标识
-            const getValineDomTimer = setInterval(() => {
-                const vcards = document.querySelectorAll('#vcomments .vcards .vcard');
-                if (vcards.length > 0) {
-                    for (let vcard of vcards) {
-                        const vnick = vcard.querySelector('.vhead .vnick');
-                        if (vnick.innerHTML.toLocaleLowerCase() === 'riverstar'.toLocaleLowerCase()) {
-                            vcard.classList.add('author');
-                        }
-                    }
-                    clearInterval(getValineDomTimer);
-                } else {
-                    clearInterval(getValineDomTimer);
-                }
-            }, 2000);
-        </script>
-    </div>
-
-
-    
-</div>
-            
         </div>
     </div>
 </div>
