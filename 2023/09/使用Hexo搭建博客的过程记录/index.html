@@ -64,7 +64,7 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"riverstar9.github.io","root":"/","version":"1.9.5-a","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":["home"]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":"#"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":3},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml","include_content_in_search":true};
+    var CONFIG = {"hostname":"riverstar9.github.io","root":"/","version":"1.9.5-a","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":["home"]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":"#"},"progressbar":{"enable":true,"height_px":3,"color":"#f6a821","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":3},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml","include_content_in_search":true};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -215,7 +215,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          3.8k 字
+          4.5k 字
         
       </span>
     
@@ -226,7 +226,7 @@
         
         
         
-          32 分钟
+          38 分钟
         
       </span>
     
@@ -482,10 +482,45 @@
 <li><code>categories</code>：分类</li>
 <li><code>tags</code>：标签</li>
 </ul>
-<h2 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h2><p>这里只考虑部署至Github Pages的情况。</p>
+<h2 id="部署-3"><a href="#部署-3" class="headerlink" title="部署[3]"></a>部署<sup id="fnref:3" class="footnote-ref"><a href="#fn:3" rel="footnote"><span class="hint--top hint--rounded" aria-label="[Hexo+GitHub搭建个人博客教程（2023最新版）](https://blog.csdn.net/qq_62928039/article/details/130248518)">[3]</span></a></sup></h2><p>这里只考虑部署至Github Pages的情况。</p>
+<h3 id="新建仓库"><a href="#新建仓库" class="headerlink" title="新建仓库"></a>新建仓库</h3><p>仓库名设置为<code>[username].github.io</code>，这样就会被识别为Github Pages。</p>
+<h3 id="生成SSH"><a href="#生成SSH" class="headerlink" title="生成SSH"></a>生成SSH</h3><p>使用Git Bash设置用户名和邮箱。</p>
+<figure><div class="code-wrapper"><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> config <span class="token parameter variable">--global</span> user.name <span class="token punctuation">[</span>yourname<span class="token punctuation">]</span>
+<span class="token function">git</span> config <span class="token parameter variable">--global</span> user.email <span class="token punctuation">[</span>youremail<span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></div></figure>
+
+<p>使用以下语句检查设置的内容。</p>
+<figure><div class="code-wrapper"><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> config user.name
+<span class="token function">git</span> config user.email<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></div></figure>
+
+<p>接下来就可以创建SSH了。</p>
+<figure><div class="code-wrapper"><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">ssh-keygen <span class="token parameter variable">-t</span> rsa <span class="token parameter variable">-C</span> <span class="token punctuation">[</span>youremail<span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure>
+
+<p>然后找到<code>id_rsa.pub</code>文件（公共秘钥），默认路径为<code>C:\Users\用户名\.ssh</code>。</p>
+<p>我们需要在Github中配置SSH秘钥。进入Github，Settings -&gt; SSH and GPG keys -&gt; SSH keys -&gt; New SSH key。</p>
+<p>新建一个SSH key，将<code>id_rsa.pub</code>文件中的内容复制到里面。</p>
+<h3 id="部署至仓库"><a href="#部署至仓库" class="headerlink" title="部署至仓库"></a>部署至仓库</h3><p>修改根目录下的<code>_config.yml</code>文件。</p>
+<figure><div class="code-wrapper"><pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">deploy</span><span class="token punctuation">:</span>
+	<span class="token key atrule">type</span><span class="token punctuation">:</span> git
+	<span class="token key atrule">repo</span><span class="token punctuation">:</span> git@github.com<span class="token punctuation">:</span><span class="token punctuation">[</span>username<span class="token punctuation">]</span>/<span class="token punctuation">[</span>username<span class="token punctuation">]</span>.github.io.git
+	<span class="token key atrule">branch</span><span class="token punctuation">:</span> main<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></div></figure>
+
+<p>此时还需要安装部署到Github的插件。</p>
+<figure><div class="code-wrapper"><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> hexo-deployer-git <span class="token parameter variable">--save</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure>
+
+<p>之后即可进行构建和部署。</p>
+<figure><div class="code-wrapper"><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hexo clean
+hexo generate
+hexo deploy<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></div></figure>
+
+<p>编辑好内容最好先<code>hexo s</code>本地预览，修改妥当后再<code>hexo d</code>部署到远程仓库中。</p>
+<h2 id="另见"><a href="#另见" class="headerlink" title="另见"></a>另见</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://easyhexo.com/">Easy Hexo</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/sinat_17775997/article/details/83821027">浅析Hexo搭建博客的原理</a></li>
+</ul>
 <section class="footnotes"><h2>注释</h2><div class="footnote-list"><ol><li><span id="fn:1" class="footnote-text"><span>原文：<a target="_blank" rel="noopener" href="https://hexo.fluid-dev.com/docs/start/#%E5%88%9B%E5%BB%BA%E3%80%8C%E5%85%B3%E4%BA%8E%E9%A1%B5%E3%80%8D">https://hexo.fluid-dev.com/docs/start/#%E5%88%9B%E5%BB%BA%E3%80%8C%E5%85%B3%E4%BA%8E%E9%A1%B5%E3%80%8D</a>
 <a href="#fnref:1" rev="footnote" class="footnote-backref"> ↩</a></span></span></li><li><span id="fn:2" class="footnote-text"><span>原文：<a target="_blank" rel="noopener" href="https://hexo.fluid-dev.com/docs/guide/#%E4%BE%BF%E7%AD%BE">https://hexo.fluid-dev.com/docs/guide/#%E4%BE%BF%E7%AD%BE</a>
-<a href="#fnref:2" rev="footnote" class="footnote-backref"> ↩</a></span></span></li></ol></div></section>
+<a href="#fnref:2" rev="footnote" class="footnote-backref"> ↩</a></span></span></li><li><span id="fn:3" class="footnote-text"><span><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_62928039/article/details/130248518">Hexo+GitHub搭建个人博客教程（2023最新版）</a>
+<a href="#fnref:3" rev="footnote" class="footnote-backref"> ↩</a></span></span></li></ol></div></section>
                 
               </div>
             
