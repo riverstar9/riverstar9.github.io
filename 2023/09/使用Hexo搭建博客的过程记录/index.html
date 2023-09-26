@@ -1,0 +1,848 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/pic/star.png">
+  <link rel="icon" href="/pic/star.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#fee183">
+  <meta name="author" content="riverstar9">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="本篇文章记录的是我使用Hexo搭建博客的过程，只涉及部分内容，仅供参考。">
+  
+  
+  
+  <title>使用Hexo搭建博客的过程记录 - Riverstar的笔记本</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/prism/1.29.0/plugins/line-numbers/prism-line-numbers.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+  
+<link rel="stylesheet" href="/src/search.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"riverstar9.github.io","root":"/","version":"1.9.5-a","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":["home"]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":"#"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":3},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 50vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Riverstar的笔记本</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                <span>链接</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/pic/home.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle">使用Hexo搭建博客的过程记录</span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2023-09-26 11:56" pubdate>
+          2023年9月26日 中午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          3.8k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          32 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">使用Hexo搭建博客的过程记录</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <p>本篇文章记录的是我使用Hexo搭建博客的过程，只涉及部分内容，仅供参考。</p>
+<span id="more"></span>
+
+<p>修改于2023-02-20发布的同名文章。</p>
+<h2 id="配置Hexo"><a href="#配置Hexo" class="headerlink" title="配置Hexo"></a>配置Hexo</h2><h3 id="安装Hexo"><a href="#安装Hexo" class="headerlink" title="安装Hexo"></a>安装<a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/">Hexo</a></h3><figure><div class="code-wrapper"><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> hexo-cli <span class="token parameter variable">-g</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure>
+
+<p>使用npm安装好Hexo之后，新建文件夹执行初始化命令。</p>
+<figure><div class="code-wrapper"><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hexo init
+<span class="token function">npm</span> <span class="token function">install</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></div></figure>
+
+<h3 id="config-yml"><a href="#config-yml" class="headerlink" title="_config.yml"></a>_config.yml</h3><p>在Hexo新建好所有文件后，通过<code>_config.yml</code>来配置大部分参数。该文件的所有参数说明均可在Hexo文档进行查阅，这里仅对部分内容进行强调。</p>
+<ul>
+<li><code>language</code>：网站使用的语言，对于简体中文用户来说设置为<code>zh-CN</code>即可。</li>
+<li><code>url</code>：网站网址，不要忘记修改。</li>
+<li><code>theme</code>：使用的主题名称。将会在下面的主题章节进行说明。</li>
+<li><code>deploy</code>：部署部分的设置。将会在下面的部署章节进行说明。</li>
+</ul>
+<h3 id="项目文件夹"><a href="#项目文件夹" class="headerlink" title="项目文件夹"></a>项目文件夹</h3><ul>
+<li><code>scaffolds</code>：模版文件夹。新建文章使用layout参数选择模板。</li>
+<li><code>source</code>：存放用户资源。大部分文章都存储在_posts下。</li>
+<li><code>themes</code>：主题文件夹。</li>
+</ul>
+<h2 id="主题"><a href="#主题" class="headerlink" title="主题"></a>主题</h2><p>Hexo的官网有非常多可供选择的主题，本站点使用的是<a target="_blank" rel="noopener" href="https://github.com/fluid-dev/hexo-theme-fluid">hexo-theme-fluid</a>。</p>
+<p>下面记录一下该主题的部分配置，更全面的内容请查阅<a target="_blank" rel="noopener" href="https://hexo.fluid-dev.com/docs/">主题文档</a>。</p>
+<h3 id="安装主题"><a href="#安装主题" class="headerlink" title="安装主题"></a>安装主题</h3><p>Hexo 5.0.0版本以上，推荐通过npm直接安装。</p>
+<figure><div class="code-wrapper"><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> <span class="token parameter variable">--save</span> hexo-theme-fluid<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure>
+
+<p>然后在博客目录下创建<code>_config.fluid.yml</code>，将主题的<a target="_blank" rel="noopener" href="https://github.com/fluid-dev/hexo-theme-fluid/blob/master/_config.yml">_config.yml</a>内容复制过去。这样就可以在不修改主题文件的情况下进行配置。</p>
+<h3 id="配置主题"><a href="#配置主题" class="headerlink" title="配置主题"></a>配置主题</h3><p>修改Hexo博客目录中的<code>_config.yml</code>文件。</p>
+<figure><div class="code-wrapper"><pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">theme</span><span class="token punctuation">:</span> fluid  <span class="token comment">#指定主题</span>
+
+<span class="token key atrule">language</span><span class="token punctuation">:</span> zh<span class="token punctuation">-</span>CN  <span class="token comment">#指定语言，会影响主题显示的语言，按需修改</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></div></figure>
+
+<h3 id="创建「关于页」-1"><a href="#创建「关于页」-1" class="headerlink" title="创建「关于页」[1]"></a>创建「关于页」<sup id="fnref:1" class="footnote-ref"><a href="#fn:1" rel="footnote"><span class="hint--top hint--rounded" aria-label="原文：">[1]</span></a></sup></h3><p>首次使用主题的「关于页」需要手动创建。</p>
+<figure><div class="code-wrapper"><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hexo new page about<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure>
+
+<p>创建成功后修改<code>/source/about/index.md</code>，添加layout属性。</p>
+<figure><div class="code-wrapper"><pre class="line-numbers language-markdown" data-language="markdown"><code class="language-markdown"><span class="token front-matter-block"><span class="token punctuation">---</span>
+<span class="token front-matter yaml language-yaml"><span class="token key atrule">title</span><span class="token punctuation">:</span> 标题
+<span class="token key atrule">layout</span><span class="token punctuation">:</span> about</span>
+<span class="token punctuation">---</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></div></figure>
+
+<h3 id="首页配置"><a href="#首页配置" class="headerlink" title="首页配置"></a>首页配置</h3><p>首页的图片可以使用本地图片的相对路径，具体方式如下。</p>
+<figure><div class="code-wrapper"><pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">banner_img</span><span class="token punctuation">:</span> /img/bg/example.jpg   <span class="token comment"># 对应/source/img/bg/example.jpg</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure>
+
+<h3 id="主题颜色配置"><a href="#主题颜色配置" class="headerlink" title="主题颜色配置"></a>主题颜色配置</h3><figure><div class="code-wrapper"><pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">color</span><span class="token punctuation">:</span>
+  <span class="token comment"># body 背景色</span>
+  <span class="token comment"># Color of body background</span>
+  <span class="token key atrule">body_bg_color</span><span class="token punctuation">:</span> <span class="token string">"#eee"</span>
+  <span class="token comment"># 暗色模式下的 body 背景色，下同</span>
+  <span class="token comment"># Color in dark mode, the same below</span>
+  <span class="token key atrule">body_bg_color_dark</span><span class="token punctuation">:</span> <span class="token string">"#181c27"</span>
+
+  <span class="token comment"># 顶部菜单背景色</span>
+  <span class="token comment"># Color of navigation bar background</span>
+  <span class="token key atrule">navbar_bg_color</span><span class="token punctuation">:</span> <span class="token string">"#fee183"</span>
+  <span class="token key atrule">navbar_bg_color_dark</span><span class="token punctuation">:</span> <span class="token string">"#d2a62d"</span>
+
+  <span class="token comment"># 顶部菜单字体色</span>
+  <span class="token comment"># Color of navigation bar text</span>
+  <span class="token key atrule">navbar_text_color</span><span class="token punctuation">:</span> <span class="token string">"#000"</span>
+  <span class="token key atrule">navbar_text_color_dark</span><span class="token punctuation">:</span> <span class="token string">"#000"</span>
+
+  <span class="token comment"># 副标题字体色</span>
+  <span class="token comment"># Color of navigation bar text</span>
+  <span class="token key atrule">subtitle_color</span><span class="token punctuation">:</span> <span class="token string">"#000"</span>
+  <span class="token key atrule">subtitle_color_dark</span><span class="token punctuation">:</span> <span class="token string">"#000"</span>
+
+  <span class="token comment"># 全局字体色</span>
+  <span class="token comment"># Color of global text</span>
+  <span class="token key atrule">text_color</span><span class="token punctuation">:</span> <span class="token string">"#3c4858"</span>
+  <span class="token key atrule">text_color_dark</span><span class="token punctuation">:</span> <span class="token string">"#c4c6c9"</span>
+
+  <span class="token comment"># 全局次级字体色（摘要、简介等位置）</span>
+  <span class="token comment"># Color of global secondary text (excerpt, introduction, etc.)</span>
+  <span class="token key atrule">sec_text_color</span><span class="token punctuation">:</span> <span class="token string">"#718096"</span>
+  <span class="token key atrule">sec_text_color_dark</span><span class="token punctuation">:</span> <span class="token string">"#a7a9ad"</span>
+
+  <span class="token comment"># 主面板背景色</span>
+  <span class="token comment"># Color of main board</span>
+  <span class="token key atrule">board_color</span><span class="token punctuation">:</span> <span class="token string">"#fff"</span>
+  <span class="token key atrule">board_color_dark</span><span class="token punctuation">:</span> <span class="token string">"#252d38"</span>
+
+  <span class="token comment"># 文章正文字体色</span>
+  <span class="token comment"># Color of post text</span>
+  <span class="token key atrule">post_text_color</span><span class="token punctuation">:</span> <span class="token string">"#2c3e50"</span>
+  <span class="token key atrule">post_text_color_dark</span><span class="token punctuation">:</span> <span class="token string">"#c4c6c9"</span>
+
+  <span class="token comment"># 文章正文字体色（h1 h2 h3...）</span>
+  <span class="token comment"># Color of Article heading (h1 h2 h3...)</span>
+  <span class="token key atrule">post_heading_color</span><span class="token punctuation">:</span> <span class="token string">"#1a202c"</span>
+  <span class="token key atrule">post_heading_color_dark</span><span class="token punctuation">:</span> <span class="token string">"#c4c6c9"</span>
+
+  <span class="token comment"># 文章超链接字体色</span>
+  <span class="token comment"># Color of post link</span>
+  <span class="token key atrule">post_link_color</span><span class="token punctuation">:</span> <span class="token string">"#f6a821"</span>
+  <span class="token key atrule">post_link_color_dark</span><span class="token punctuation">:</span> <span class="token string">"#f6a821"</span>
+
+  <span class="token comment"># 超链接悬浮时字体色</span>
+  <span class="token comment"># Color of link when hovering</span>
+  <span class="token key atrule">link_hover_color</span><span class="token punctuation">:</span> <span class="token string">"#c47f08"</span>
+  <span class="token key atrule">link_hover_color_dark</span><span class="token punctuation">:</span> <span class="token string">"#c47f08"</span>
+
+  <span class="token comment"># 超链接悬浮背景色</span>
+  <span class="token comment"># Color of link background when hovering</span>
+  <span class="token key atrule">link_hover_bg_color</span><span class="token punctuation">:</span> <span class="token string">"#f8f9fa"</span>
+  <span class="token key atrule">link_hover_bg_color_dark</span><span class="token punctuation">:</span> <span class="token string">"#364151"</span>
+
+  <span class="token comment"># 分隔线和表格边线的颜色</span>
+  <span class="token comment"># Color of horizontal rule and table border</span>
+  <span class="token key atrule">line_color</span><span class="token punctuation">:</span> <span class="token string">"#eaecef"</span>
+  <span class="token key atrule">line_color_dark</span><span class="token punctuation">:</span> <span class="token string">"#435266"</span>
+
+  <span class="token comment"># 滚动条颜色</span>
+  <span class="token comment"># Color of scrollbar</span>
+  <span class="token key atrule">scrollbar_color</span><span class="token punctuation">:</span> <span class="token string">"#c4c6c9"</span>
+  <span class="token key atrule">scrollbar_color_dark</span><span class="token punctuation">:</span> <span class="token string">"#687582"</span>
+  <span class="token comment"># 滚动条悬浮颜色</span>
+  <span class="token comment"># Color of scrollbar when hovering</span>
+  <span class="token key atrule">scrollbar_hover_color</span><span class="token punctuation">:</span> <span class="token string">"#a6a6a6"</span>
+  <span class="token key atrule">scrollbar_hover_color_dark</span><span class="token punctuation">:</span> <span class="token string">"#9da8b3"</span>
+
+  <span class="token comment"># 按钮背景色</span>
+  <span class="token comment"># Color of button</span>
+  <span class="token key atrule">button_bg_color</span><span class="token punctuation">:</span> <span class="token string">"transparent"</span>
+  <span class="token key atrule">button_bg_color_dark</span><span class="token punctuation">:</span> <span class="token string">"transparent"</span>
+  <span class="token comment"># 按钮悬浮背景色</span>
+  <span class="token comment"># Color of button when hovering</span>
+  <span class="token key atrule">button_hover_bg_color</span><span class="token punctuation">:</span> <span class="token string">"#f2f3f5"</span>
+  <span class="token key atrule">button_hover_bg_color_dark</span><span class="token punctuation">:</span> <span class="token string">"#46647e"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div></figure>
+
+<p>搜索输入框选中时的颜色可以通过自定义css实现。</p>
+<figure><div class="code-wrapper"><pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">.md-form input[type]:focus:not([readonly]) + label</span> <span class="token punctuation">&#123;</span>
+    <span class="token property">color</span><span class="token punctuation">:</span> #f6a821<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token selector">.md-form input[type]:focus:not([readonly])</span> <span class="token punctuation">&#123;</span>
+    <span class="token property">border-bottom</span><span class="token punctuation">:</span> 1px solid #f6a821<span class="token punctuation">;</span>
+    <span class="token property">-webkit-box-shadow</span><span class="token punctuation">:</span> 0 1px 0 0 #f6a821<span class="token punctuation">;</span>
+    <span class="token property">box-shadow</span><span class="token punctuation">:</span> 0 1px 0 0 #f6a821<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div></figure>
+
+<h3 id="文章摘要"><a href="#文章摘要" class="headerlink" title="文章摘要"></a>文章摘要</h3><p>若需要手动指定首页的文章摘要，可以使用<code>&lt;!-- more --&gt;</code>在markdown文件里划分。</p>
+<figure><div class="code-wrapper"><pre class="line-numbers language-markdown" data-language="markdown"><code class="language-markdown">正文的一部分作为摘要
+
+<span class="token comment">&lt;!-- more --></span>
+
+余下的正文<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></div></figure>
+
+<h3 id="便签-2"><a href="#便签-2" class="headerlink" title="便签[2]"></a>便签<sup id="fnref:2" class="footnote-ref"><a href="#fn:2" rel="footnote"><span class="hint--top hint--rounded" aria-label="原文：">[2]</span></a></sup></h3><p>在markdown中加入如下代码来使用便签。</p>
+<figure><div class="code-wrapper"><pre class="line-numbers language-markdown" data-language="markdown"><code class="language-markdown">&#123;% note success %&#125;
+内容
+&#123;% endnote %&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></div></figure>
+
+<p>所有的便签类型如下。</p>
+<div class="note note-primary">
+            <p>primary</p>
+          </div>
+
+<div class="note note-secondary">
+            <p>secondary</p>
+          </div>
+
+<div class="note note-success">
+            <p>success</p>
+          </div>
+
+<div class="note note-danger">
+            <p>danger</p>
+          </div>
+
+<div class="note note-info">
+            <p>info</p>
+          </div>
+
+<p>Tag插件的其他类型详见<a target="_blank" rel="noopener" href="https://hexo.fluid-dev.com/docs/guide/#tag-%E6%8F%92%E4%BB%B6">文档</a>。</p>
+<h3 id="自带页面相关文本"><a href="#自带页面相关文本" class="headerlink" title="自带页面相关文本"></a>自带页面相关文本</h3><p>Fluid主题提供了一些自带的页面，如归档、分类、友链等。修改这些页面中的文字需要配置主题的语言文件，可通过创建自定义语言文件的方式修改其内容。</p>
+<ol>
+<li>进入博客目录的<code>source/_data</code>目录（如不存在则创建），创建<code>languages</code>文件夹</li>
+<li>在<code>source/_data/languages</code>文件夹下创建<code>xxx.yml</code>文件（xxx替换为对应语言的代码，例如<code>zh-CN</code>）</li>
+<li>将<a target="_blank" rel="noopener" href="https://github.com/fluid-dev/hexo-theme-fluid/tree/master/languages">fluid&#x2F;languages</a>下对应语言的配置内容复制到<code>xxx.yml</code>中</li>
+<li>之后在<code>xxx.yml</code>中修改即可，配置会在<code>hexo g</code>时自动覆盖</li>
+</ol>
+<h2 id="Hexo命令"><a href="#Hexo命令" class="headerlink" title="Hexo命令"></a>Hexo命令</h2><h3 id="新建文章"><a href="#新建文章" class="headerlink" title="新建文章"></a>新建文章</h3><figure><div class="code-wrapper"><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hexo new <span class="token punctuation">[</span>layout<span class="token punctuation">]</span> <span class="token operator">&lt;</span>title<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure>
+
+<p><code>layout</code>为布局模板名称，留空则使用默认的post。</p>
+<p>若标题包含空格须使用引号。</p>
+<h3 id="生成静态文件"><a href="#生成静态文件" class="headerlink" title="生成静态文件"></a>生成静态文件</h3><figure><div class="code-wrapper"><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hexo generate<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure>
+
+<p>可简化为<code>hexo g</code>。</p>
+<h3 id="启动服务器"><a href="#启动服务器" class="headerlink" title="启动服务器"></a>启动服务器</h3><figure><div class="code-wrapper"><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hexo server<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure>
+
+<p>启动后可通过<a target="_blank" rel="noopener" href="http://localhost:4000/">http://localhost:4000</a>预览网站。</p>
+<h3 id="清除缓存"><a href="#清除缓存" class="headerlink" title="清除缓存"></a>清除缓存</h3><figure><div class="code-wrapper"><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hexo clean<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure>
+
+<h3 id="部署网站"><a href="#部署网站" class="headerlink" title="部署网站"></a>部署网站</h3><figure><div class="code-wrapper"><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hexo deploy<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure>
+
+<p>可简化为<code>hexo d</code>。</p>
+<h3 id="Front-matter"><a href="#Front-matter" class="headerlink" title="Front-matter"></a>Front-matter</h3><p>Front-matter是文件最上方以<code>---</code>分隔的区域，可用来配置文件的部分参数。</p>
+<p>例如本文章的Front-matter如下：</p>
+<figure><div class="code-wrapper"><pre class="line-numbers language-markdown" data-language="markdown"><code class="language-markdown"><span class="token front-matter-block"><span class="token punctuation">---</span>
+<span class="token front-matter yaml language-yaml"><span class="token key atrule">title</span><span class="token punctuation">:</span> 使用Hexo搭建博客的过程记录
+<span class="token key atrule">date</span><span class="token punctuation">:</span> <span class="token datetime number">2023-09-26</span>
+<span class="token key atrule">category</span><span class="token punctuation">:</span> 过程记录</span>
+<span class="token punctuation">---</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></div></figure>
+
+<ul>
+<li><code>title</code>：文章标题</li>
+<li><code>date</code>：发布日期</li>
+<li><code>updated</code>：更新日期</li>
+<li><code>layout</code>：布局模板</li>
+<li><code>categories</code>：分类</li>
+<li><code>tags</code>：标签</li>
+</ul>
+<h2 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h2><p>这里只考虑部署至Github Pages的情况。</p>
+<section class="footnotes"><h2>注释</h2><div class="footnote-list"><ol><li><span id="fn:1" class="footnote-text"><span>原文：<a target="_blank" rel="noopener" href="https://hexo.fluid-dev.com/docs/start/#%E5%88%9B%E5%BB%BA%E3%80%8C%E5%85%B3%E4%BA%8E%E9%A1%B5%E3%80%8D">https://hexo.fluid-dev.com/docs/start/#%E5%88%9B%E5%BB%BA%E3%80%8C%E5%85%B3%E4%BA%8E%E9%A1%B5%E3%80%8D</a>
+<a href="#fnref:1" rev="footnote" class="footnote-backref"> ↩</a></span></span></li><li><span id="fn:2" class="footnote-text"><span>原文：<a target="_blank" rel="noopener" href="https://hexo.fluid-dev.com/docs/guide/#%E4%BE%BF%E7%AD%BE">https://hexo.fluid-dev.com/docs/guide/#%E4%BE%BF%E7%AD%BE</a>
+<a href="#fnref:2" rev="footnote" class="footnote-backref"> ↩</a></span></span></li></ol></div></section>
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E8%BF%87%E7%A8%8B%E8%AE%B0%E5%BD%95/" class="category-chain-item">过程记录</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>使用Hexo搭建博客的过程记录</div>
+      <div>https://riverstar9.github.io/2023/09/使用Hexo搭建博客的过程记录/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>riverstar9</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2023年9月26日</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>更新于</div>
+          <div>2023年9月26日</div>
+        </div>
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="NC - 非商业性使用">
+                    <i class="iconfont icon-nc"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2023/09/C-Primer-Plus%E7%AC%94%E8%AE%B0-%E6%8C%87%E9%92%88/" title="C Primer Plus笔记：指针">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">C Primer Plus笔记：指针</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2023/09/%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/" title="第一篇文章">
+                        <span class="hidden-mobile">第一篇文章</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       Powered by <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> | Theme by <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script  src="https://lib.baomitu.com/prism/1.29.0/plugins/line-numbers/prism-line-numbers.min.js" ></script>
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

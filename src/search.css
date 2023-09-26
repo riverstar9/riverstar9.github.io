@@ -1,0 +1,9 @@
+.md-form input[type]:focus:not([readonly]) + label {
+    color: #f6a821;
+}
+
+.md-form input[type]:focus:not([readonly]) {
+    border-bottom: 1px solid #f6a821;
+    -webkit-box-shadow: 0 1px 0 0 #f6a821;
+    box-shadow: 0 1px 0 0 #f6a821;
+}
