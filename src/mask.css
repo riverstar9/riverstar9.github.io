@@ -1,0 +1,13 @@
+:root {
+    --mask-color: rgba(0, 0, 0, 0);
+}
+
+@media not print {
+    [data-user-color-scheme="dark"] {
+        --mask-color: rgba(0, 0, 0, 0.6);
+    }
+}
+
+.mask {
+    background-color: var(--mask-color) !important;
+}
