@@ -58,8 +58,9 @@
 
   
 <link rel="stylesheet" href="/src/search.css">
-<link rel="stylesheet" href="/src/mask.css">
-<link rel="stylesheet" href="/src/strong.css">
+<link rel="stylesheet" href="/src/mask-night.css">
+<link rel="stylesheet" href="/src/strong-decoration.css">
+<link rel="stylesheet" href="/src/card-block.css">
 
 
 
@@ -273,37 +274,37 @@
                 <p>记录了一些关于指针的笔记。</p>
 <span id="more"></span>
 
-<p>原文发布于2023-03-05。</p>
 <h2 id="基本概念（P269）"><a href="#基本概念（P269）" class="headerlink" title="基本概念（P269）"></a>基本概念（P269）</h2><h3 id="地址运算符："><a href="#地址运算符：" class="headerlink" title="地址运算符：&amp;"></a>地址运算符：&amp;</h3><p>后跟一个变量名时，&amp;给出该变量的地址。</p>
 <h3 id="地址运算符：-1"><a href="#地址运算符：-1" class="headerlink" title="地址运算符：*"></a>地址运算符：*</h3><p>后跟一个指针名或地址时，*给出储存在指针指向地址上的值。</p>
-<figure><div class="code-wrapper"><pre class="line-numbers language-c" data-language="c"><code class="language-c">ptr <span class="token operator">=</span> <span class="token operator">&amp;</span>pooh<span class="token punctuation">;</span> <span class="token comment">// 把pooh的地址赋给ptr</span>
-val <span class="token operator">=</span> <span class="token operator">*</span>ptr<span class="token punctuation">;</span> <span class="token comment">// 找出ptr指向的值</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></div></figure>
+<figure><div class="code-wrapper"><pre class="line-numbers language-c" data-language="c"><code class="language-c">ptr <span class="token operator">=</span> <span class="token operator">&amp;</span>pooh<span class="token punctuation">;</span>	<span class="token comment">// 把pooh的地址赋给ptr</span>
+val <span class="token operator">=</span> <span class="token operator">*</span>ptr<span class="token punctuation">;</span>		<span class="token comment">// 找出ptr指向的值</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></div></figure>
 
-<h3 id="声明指针"><a href="#声明指针" class="headerlink" title="声明指针"></a>声明指针</h3><figure><div class="code-wrapper"><pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token keyword">int</span> <span class="token operator">*</span>pi<span class="token punctuation">;</span> <span class="token comment">// pi是指向int类型变量的指针</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure>
+<h3 id="声明指针"><a href="#声明指针" class="headerlink" title="声明指针"></a>声明指针</h3><figure><div class="code-wrapper"><pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token keyword">int</span> <span class="token operator">*</span>pi<span class="token punctuation">;</span>	<span class="token comment">// pi是指向int类型变量的指针</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure>
 
-<h3 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h3><figure><div class="code-wrapper"><pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token function">interchange</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>x<span class="token punctuation">,</span> <span class="token operator">&amp;</span>y<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 函数调用：传递x与y的地址</span>
-<span class="token keyword">void</span> <span class="token function">interchange</span> <span class="token punctuation">(</span><span class="token keyword">int</span> <span class="token operator">*</span>u<span class="token punctuation">,</span> <span class="token keyword">int</span> <span class="token operator">*</span>v<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 函数声明</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></div></figure>
+<h3 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h3><figure><div class="code-wrapper"><pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token function">interchange</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>x<span class="token punctuation">,</span> <span class="token operator">&amp;</span>y<span class="token punctuation">)</span><span class="token punctuation">;</span>	<span class="token comment">// 函数调用：传递x与y的地址</span>
+<span class="token keyword">void</span> <span class="token function">interchange</span><span class="token punctuation">(</span><span class="token keyword">int</span> <span class="token operator">*</span>u<span class="token punctuation">,</span> <span class="token keyword">int</span> <span class="token operator">*</span>v<span class="token punctuation">)</span><span class="token punctuation">;</span>	<span class="token comment">// 函数声明</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></div></figure>
 
 <h2 id="一维数组"><a href="#一维数组" class="headerlink" title="一维数组"></a>一维数组</h2><h3 id="关于数组（P280）"><a href="#关于数组（P280）" class="headerlink" title="关于数组（P280）"></a>关于数组（P280）</h3><p>可以省略方括号中的数字，让编译器自动匹配数组大小和初始化列表中的项数。</p>
-<figure><div class="code-wrapper"><pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token keyword">const</span> <span class="token keyword">int</span> days<span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">&#123;</span> <span class="token number">31</span><span class="token punctuation">,</span> <span class="token number">28</span><span class="token punctuation">,</span> <span class="token number">31</span><span class="token punctuation">,</span> <span class="token number">30</span><span class="token punctuation">,</span> <span class="token number">31</span><span class="token punctuation">,</span> <span class="token number">30</span><span class="token punctuation">,</span> <span class="token number">31</span><span class="token punctuation">,</span> <span class="token number">31</span><span class="token punctuation">,</span> <span class="token number">30</span><span class="token punctuation">,</span> <span class="token number">31</span> <span class="token punctuation">&#125;</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure>
+<figure><div class="code-wrapper"><pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token keyword">const</span> <span class="token keyword">int</span> days<span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token number">31</span><span class="token punctuation">,</span> <span class="token number">28</span><span class="token punctuation">,</span> <span class="token number">31</span><span class="token punctuation">,</span> <span class="token number">30</span><span class="token punctuation">,</span> <span class="token number">31</span><span class="token punctuation">,</span> <span class="token number">30</span><span class="token punctuation">,</span> <span class="token number">31</span><span class="token punctuation">,</span> <span class="token number">31</span><span class="token punctuation">,</span> <span class="token number">30</span><span class="token punctuation">,</span> <span class="token number">31</span><span class="token punctuation">&#125;</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure>
 
-<p><code>sizeof days</code>是<strong>整个数组</strong>的大小，<code>sizeof day[0]</code>是数组中一个元素的大小。整个数组的大小除以单个元素的大小就是数组元素的个数。</p>
+<p><code>sizeof days</code>是<strong>整个数组</strong>的大小，<code>sizeof day[0]</code>是数组中<strong>一个元素</strong>的大小。整个数组的大小除以单个元素的大小就是数组元素的个数。</p>
 <p>二维数组中，如果第1个列表中大小为12，而初始化时只有10个数，则只会初始化数组第1行的前10个元素，最后两个元素将被默认初始化为0。</p>
 <h3 id="数组与指针（P288）"><a href="#数组与指针（P288）" class="headerlink" title="数组与指针（P288）"></a>数组与指针（P288）</h3><p>数组表示法其实是在变相地使用指针。</p>
-<figure><div class="code-wrapper"><pre class="line-numbers language-c" data-language="c"><code class="language-c">flizny <span class="token operator">==</span> <span class="token operator">&amp;</span>flizny<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token comment">// 数组名是该数组首元素的地址</span>
+<figure><div class="code-wrapper"><pre class="line-numbers language-c" data-language="c"><code class="language-c">flizny <span class="token operator">==</span> <span class="token operator">&amp;</span>flizny<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">;</span>	<span class="token comment">// 数组名是该数组首元素的地址</span>
 
 <span class="token keyword">int</span> dates<span class="token punctuation">[</span><span class="token number">10</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-dates <span class="token operator">+</span> <span class="token number">2</span> <span class="token operator">==</span> <span class="token operator">&amp;</span>date<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span> <span class="token comment">// 相同的地址</span>
-<span class="token operator">*</span><span class="token punctuation">(</span>dates <span class="token operator">+</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token operator">==</span> dates<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span> <span class="token comment">// 相同的值</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></div></figure>
+dates <span class="token operator">+</span> <span class="token number">2</span> <span class="token operator">==</span> <span class="token operator">&amp;</span>date<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">;</span>		<span class="token comment">// 相同的地址</span>
+<span class="token operator">*</span><span class="token punctuation">(</span>dates <span class="token operator">+</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token operator">==</span> dates<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">;</span>	<span class="token comment">// 相同的值</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></div></figure>
 
 <p><code>ar[i]</code>和<code>*(ar+i)</code>这两个表达式都是等价的。但是，只有当ar是<strong>指针变量</strong>时，才能使用<code>ar++</code>这样的表达式。</p>
 <p>此外，间接运算符<code>*</code>的优先级高于<code>+</code>。</p>
-<figure><div class="code-wrapper"><pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token operator">*</span><span class="token punctuation">(</span>dates <span class="token operator">+</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token comment">// dates第3个元素的值</span>
-<span class="token operator">*</span>dates <span class="token operator">+</span> <span class="token number">2</span> <span class="token comment">// dates第1个元素的值加2</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></div></figure>
+<figure><div class="code-wrapper"><pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token operator">*</span><span class="token punctuation">(</span>dates <span class="token operator">+</span> <span class="token number">2</span><span class="token punctuation">)</span>	<span class="token comment">// dates第3个元素的值</span>
+<span class="token operator">*</span>dates <span class="token operator">+</span> <span class="token number">2</span>		<span class="token comment">// dates第1个元素的值加2</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></div></figure>
 
 <p>一元运算符<code>*</code>和<code>++</code>的优先级相同，但结合律是从右往左。</p>
-<figure><div class="code-wrapper"><pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token operator">*</span>start<span class="token operator">++</span><span class="token punctuation">;</span> <span class="token comment">// *(start++)这样写更清楚，相当于移动指针再取值</span>
-<span class="token punctuation">(</span><span class="token operator">*</span>p3<span class="token punctuation">)</span><span class="token operator">++</span>； <span class="token comment">// 相当于操作值，使p3指向的值自增</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></div></figure>
+<figure><div class="code-wrapper"><pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token operator">*</span>start<span class="token operator">++</span>	<span class="token comment">// *(start++)这样写更清楚，相当于移动指针再取值</span>
+<span class="token punctuation">(</span><span class="token operator">*</span>p3<span class="token punctuation">)</span><span class="token operator">++</span>		<span class="token comment">// 相当于操作值，使p3指向的值自增</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></div></figure>
+
 <h3 id="函数的数组形参（P291）"><a href="#函数的数组形参（P291）" class="headerlink" title="函数的数组形参（P291）"></a>函数的数组形参（P291）</h3><p><code>int *ar</code>形式和<code>int ar[]</code>形式都表示ar是一个指向int的指针。但<code>int ar[]</code>只有在声明函数形参时才能使用，它能够提示ar指向的不仅仅是一个int类型值，还是一个int类型的数组元素。</p>
 <figure><div class="code-wrapper"><pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token comment">// 下面两种形式的函数定义等价</span>
 <span class="token keyword">int</span> <span class="token function">sum</span><span class="token punctuation">(</span><span class="token keyword">int</span> <span class="token operator">*</span>ar<span class="token punctuation">,</span> <span class="token keyword">int</span> n<span class="token punctuation">)</span>
@@ -316,24 +317,24 @@ dates <span class="token operator">+</span> <span class="token number">2</span> 
 <p>以上代码中的const告诉编译器，该函数不能修改ar指向的数组中的内容。如果不小心使用了类似<code>ar[i]++</code>的表达式，编译器会捕获这个错误，并生成一条错误信息。</p>
 <p>const的指针不能用于改变值。</p>
 <figure><div class="code-wrapper"><pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token keyword">double</span> rates<span class="token punctuation">[</span><span class="token number">5</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token number">88</span><span class="token punctuation">,</span> <span class="token number">100</span><span class="token punctuation">,</span> <span class="token number">59</span><span class="token punctuation">,</span> <span class="token number">183</span><span class="token punctuation">,</span> <span class="token number">340</span><span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
-<span class="token keyword">const</span> <span class="token keyword">double</span> <span class="token operator">*</span> pd <span class="token operator">=</span> rates<span class="token punctuation">;</span> <span class="token comment">// pd指向数组的首元素</span>
+<span class="token keyword">const</span> <span class="token keyword">double</span> <span class="token operator">*</span> pd <span class="token operator">=</span> rates<span class="token punctuation">;</span>	<span class="token comment">// pd指向数组的首元素</span>
 
-<span class="token operator">*</span>pd <span class="token operator">=</span> <span class="token number">29</span><span class="token punctuation">;</span> <span class="token comment">// 不允许</span>
-pd<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">222</span><span class="token punctuation">;</span> <span class="token comment">// 不允许</span>
-rates<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">99</span><span class="token punctuation">;</span> <span class="token comment">// 允许，因为rates未被const限定</span>
-pd<span class="token operator">++</span><span class="token punctuation">;</span> <span class="token comment">// 没问题，可以让pd指向别处</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div></figure>
+<span class="token operator">*</span>pd <span class="token operator">=</span> <span class="token number">29</span><span class="token punctuation">;</span>		<span class="token comment">// 不允许</span>
+pd<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">222</span><span class="token punctuation">;</span>	<span class="token comment">// 不允许</span>
+rates<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">99</span><span class="token punctuation">;</span>	<span class="token comment">// 允许，因为rates未被const限定</span>
+pd<span class="token operator">++</span><span class="token punctuation">;</span>			<span class="token comment">// 没问题，可以让pd指向别处</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div></figure>
 
 <p>只能把非const数据的地址赋给普通指针，要不然通过指针就能修改const的值了。</p>
 <figure><div class="code-wrapper"><pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token keyword">const</span> <span class="token keyword">double</span> locked<span class="token punctuation">[</span><span class="token number">4</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token number">0.08</span><span class="token punctuation">,</span> <span class="token number">0.075</span><span class="token punctuation">,</span> <span class="token number">0.0725</span><span class="token punctuation">,</span> <span class="token number">0.07</span><span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
-pnc <span class="token operator">=</span> locked<span class="token punctuation">;</span> <span class="token comment">// 无效</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></div></figure>
+pnc <span class="token operator">=</span> locked<span class="token punctuation">;</span>	<span class="token comment">// 无效</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></div></figure>
 
 <p>还可以声明并初始化一个不能指向别处的指针，这种指针可以修改指向的值，但不能指向别的地方。</p>
-<figure><div class="code-wrapper"><pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token keyword">double</span> <span class="token operator">*</span> <span class="token keyword">const</span> pc <span class="token operator">=</span> rates<span class="token punctuation">;</span> <span class="token comment">// pc 指向数组的开始</span>
-pc <span class="token operator">=</span> <span class="token operator">&amp;</span>rates<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token comment">// 不允许，因为该指针不能指向别处</span>
-<span class="token operator">*</span>pc <span class="token operator">=</span> <span class="token number">92.99</span><span class="token punctuation">;</span> <span class="token comment">// 没问题，更改rates[0]的值</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></div></figure>
+<figure><div class="code-wrapper"><pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token keyword">double</span> <span class="token operator">*</span> <span class="token keyword">const</span> pc <span class="token operator">=</span> rates<span class="token punctuation">;</span>	<span class="token comment">// pc指向数组的开始</span>
+pc <span class="token operator">=</span> <span class="token operator">&amp;</span>rates<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">;</span>		<span class="token comment">// 不允许，因为该指针不能指向别处</span>
+<span class="token operator">*</span>pc <span class="token operator">=</span> <span class="token number">92.99</span><span class="token punctuation">;</span>		<span class="token comment">// 没问题，更改rates[0]的值</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></div></figure>
 
 
-<h2 id="二维数组"><a href="#二维数组" class="headerlink" title="二维数组"></a>二维数组</h2><h3 id="指针表示法（P302）"><a href="#指针表示法（P302）" class="headerlink" title="指针表示法（P302）"></a>指针表示法（P302）</h3><figure><div class="code-wrapper"><pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token keyword">int</span> zippo<span class="token punctuation">[</span><span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token comment">// 内含int数组的数组</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure>
+<h2 id="二维数组"><a href="#二维数组" class="headerlink" title="二维数组"></a>二维数组</h2><h3 id="指针表示法（P302）"><a href="#指针表示法（P302）" class="headerlink" title="指针表示法（P302）"></a>指针表示法（P302）</h3><figure><div class="code-wrapper"><pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token keyword">int</span> zippo<span class="token punctuation">[</span><span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">;</span>	<span class="token comment">// 内含int数组的数组</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure>
 <ul>
 <li>因为zippo是数组首元素的地址，所以<code>zippo</code>的值和<code>&amp;zippo[0]</code>的值相同。</li>
 <li><code>zippo[0]</code>可以表示zippo中的第一个数组，所以<code>zippo[0]</code>（相当于数组名）代表着该数组的开始地址，所以<code>zippo</code>和<code>zippo[0]</code>的值相同。</li>
@@ -343,9 +344,10 @@ pc <span class="token operator">=</span> <span class="token operator">&amp;</spa
 <li><code>zippo</code>指向的对象占用了两个int大小（长度为2的数组）。</li>
 <li><code>zippo[0]</code>指向的对象只占用一个int大小（数组中的一个int元素）。</li>
 </ul>
-<h3 id="解引用（P302）"><a href="#解引用（P302）" class="headerlink" title="解引用（P302）"></a>解引用（P302）</h3><ul>
-<li>文字解释的是其上方的代码。</li>
-</ul>
+<h3 id="解引用（P302）"><a href="#解引用（P302）" class="headerlink" title="解引用（P302）"></a>解引用（P302）</h3><div class="note note-info">
+            <p>文字解释的是其上方的代码。</p>
+          </div>
+
 <figure><div class="code-wrapper"><pre class="line-numbers language-c" data-language="c"><code class="language-c">zippo<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure>
 
 <p>二维数组首元素的地址（每个元素都是内含两个int类型的一维数组）。</p>
@@ -355,38 +357,40 @@ pc <span class="token operator">=</span> <span class="token operator">&amp;</spa
 <p>二者等价。</p>
 <figure><div class="code-wrapper"><pre class="line-numbers language-c" data-language="c"><code class="language-c">zippo <span class="token operator">+</span> <span class="token number">2</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure>
 
-<p>二维数组中，第3个一维数组的地址（指向一维数组）</p>
+<p>二维数组中，第3个一维数组的地址（指向一维数组）。</p>
 <figure><div class="code-wrapper"><pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token operator">*</span><span class="token punctuation">(</span>zippo <span class="token operator">+</span> <span class="token number">2</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure>
 
-<p>二维数组中，第3个一维数组的<strong>首元素地址</strong>（指向int型）</p>
+<p>二维数组中，第3个一维数组的<strong>首元素地址</strong>（指向int型）。</p>
 <figure><div class="code-wrapper"><pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token operator">*</span><span class="token punctuation">(</span>zippo <span class="token operator">+</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token number">1</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure>
 
-<p>二维数组中，第3个一维数组中，第二个元素的<strong>地址</strong>（int）</p>
+<p>二维数组中，第3个一维数组中，第二个元素的<strong>地址</strong>（int）。</p>
 <figure><div class="code-wrapper"><pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token operator">*</span><span class="token punctuation">(</span><span class="token operator">*</span><span class="token punctuation">(</span>zippo <span class="token operator">+</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure>
 
-<p>二维数组中，第3个一维数组中，第二个元素的<strong>值</strong></p>
-<h3 id="指向多维数组的指针（P304）"><a href="#指向多维数组的指针（P304）" class="headerlink" title="指向多维数组的指针（P304）"></a>指向多维数组的指针（P304）</h3><figure><div class="code-wrapper"><pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token keyword">int</span> <span class="token punctuation">(</span><span class="token operator">*</span>pz<span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token comment">// pz指向：包含两个int类型值的数组</span>
-<span class="token keyword">int</span> <span class="token operator">*</span>pax<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token comment">// pax是包含两个指针元素的数组，每个元素都指向int</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></div></figure>
+<p>二维数组中，第3个一维数组中，第二个元素的<strong>值</strong>。</p>
+<h3 id="指向多维数组的指针（P304）"><a href="#指向多维数组的指针（P304）" class="headerlink" title="指向多维数组的指针（P304）"></a>指向多维数组的指针（P304）</h3><figure><div class="code-wrapper"><pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token keyword">int</span> <span class="token punctuation">(</span><span class="token operator">*</span>pz<span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">;</span>	<span class="token comment">// pz指向：包含两个int类型值的数组</span>
+<span class="token keyword">int</span> <span class="token operator">*</span>pax<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">;</span>	<span class="token comment">// pax是包含两个指针元素的数组，每个元素都指向int</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></div></figure>
 
 <h3 id="函数的多维数组形参（P306）"><a href="#函数的多维数组形参（P306）" class="headerlink" title="函数的多维数组形参（P306）"></a>函数的多维数组形参（P306）</h3><figure><div class="code-wrapper"><pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token keyword">int</span> <span class="token function">sum</span><span class="token punctuation">(</span><span class="token keyword">int</span> <span class="token punctuation">(</span><span class="token operator">*</span>arr<span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token keyword">int</span> rows<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token keyword">int</span> <span class="token function">sum</span><span class="token punctuation">(</span><span class="token keyword">int</span> arr<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token keyword">int</span> rows<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></div></figure>
 
 <p>二维数组的名称可视为，一个指向长度为4的数组的指针。第二种表示方法中，空方括号表明arr是一个指针。</p>
 <p>一般而言，声明一个指向N维数组的指针时，只能省略最左边方括号中的值。</p>
-<h2 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h2><h3 id="定义字符串（P322）"><a href="#定义字符串（P322）" class="headerlink" title="定义字符串（P322）"></a>定义字符串（P322）</h3><figure><div class="code-wrapper"><pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token comment">/* 字符串字面量（字符串常量） */</span>
+<h2 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h2><h3 id="定义字符串（P322）"><a href="#定义字符串（P322）" class="headerlink" title="定义字符串（P322）"></a>定义字符串（P322）</h3><figure><div class="code-wrapper"><pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token comment">// 字符串字面量（字符串常量）</span>
 <span class="token keyword">char</span> greeting<span class="token punctuation">[</span><span class="token number">50</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">"Hello, and how are you today!"</span><span class="token punctuation">;</span>
-<span class="token comment">/* 编译器会自动计算数组的大小 */</span>
-<span class="token keyword">const</span> <span class="token keyword">char</span> m<span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">"If you can't think of anything, fake it."</span><span class="token punctuation">;</span>
-<span class="token comment">/* 指针表示法 */</span>
-<span class="token keyword">const</span> <span class="token keyword">char</span> <span class="token operator">*</span>pt1 <span class="token operator">=</span> <span class="token string">"Something is pointing at me."</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div></figure>
 
-<p>数组形式：</p>
+<span class="token comment">// 编译器会自动计算数组的大小</span>
+<span class="token keyword">const</span> <span class="token keyword">char</span> m<span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">"If you can't think of anything, fake it."</span><span class="token punctuation">;</span>
+
+<span class="token comment">// 指针表示法</span>
+<span class="token keyword">const</span> <span class="token keyword">char</span> <span class="token operator">*</span>pt1 <span class="token operator">=</span> <span class="token string">"Something is pointing at me."</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div></figure>
+
+<p><strong>数组形式</strong>：</p>
 <ul>
 <li>字符串储存在静态存储区，程序在开始运行时才会为该数组分配内存，将字符串<strong>拷贝</strong>到数组中。</li>
 <li>此时字符串有<strong>两个副本</strong>。一个是在静态内存中的字符串字面量，另一个是储存在m数组中的字符串。</li>
 <li>m是地址常量，不能修改，不能自增。</li>
 </ul>
-<p>指针形式：</p>
+<p><strong>指针形式</strong>：</p>
 <ul>
 <li>它会为指针变量<code>pt1</code>留出一个储存位置，并把字符串的地址储存在指针变量中。</li>
 <li><code>pt1</code>的值可以改变。</li>
@@ -394,10 +398,11 @@ pc <span class="token operator">=</span> <span class="token operator">&amp;</spa
 </ul>
 <p>总之，初始化数组把静态存储区的字符串拷贝到数组中，而初始化指针只把字符串的地址拷贝给指针。</p>
 <p>如果不修改字符串，不要用指针指向字符串字面量。</p>
-<h3 id="字符串数组（P327）"><a href="#字符串数组（P327）" class="headerlink" title="字符串数组（P327）"></a>字符串数组（P327）</h3><figure><div class="code-wrapper"><pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token comment">/* 指向字符串的指针数组 */</span>
+<h3 id="字符串数组（P327）"><a href="#字符串数组（P327）" class="headerlink" title="字符串数组（P327）"></a>字符串数组（P327）</h3><figure><div class="code-wrapper"><pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token comment">// 指向字符串的指针数组</span>
 <span class="token keyword">const</span> <span class="token keyword">char</span> <span class="token operator">*</span>mytalents<span class="token punctuation">[</span>LIM<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
-<span class="token comment">/* char 类型数组的数组 */</span>
-<span class="token keyword">char</span> yourtalents<span class="token punctuation">[</span>LIM<span class="token punctuation">]</span><span class="token punctuation">[</span>SLEN<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></div></figure>
+
+<span class="token comment">// char 类型数组的数组</span>
+<span class="token keyword">char</span> yourtalents<span class="token punctuation">[</span>LIM<span class="token punctuation">]</span><span class="token punctuation">[</span>SLEN<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></div></figure>
 
 <p>两者占用的存储空间不同，<code>yourtalents</code>中的每个元素的大小必须相同，而且必须是能储存最长字符串的大小。</p>
 <p><code>mytalents</code>中的指针指向初始化时所用的字符串字面量的位置，这些字符串字面量<strong>被储存在静态内存</strong>中；而<code>yourtalents</code>中的数组则储存着字符串字面量的<strong>副本</strong>，所以每个字符串都被储存了两次。</p>

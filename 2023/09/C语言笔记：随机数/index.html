@@ -58,8 +58,9 @@
 
   
 <link rel="stylesheet" href="/src/search.css">
-<link rel="stylesheet" href="/src/mask.css">
-<link rel="stylesheet" href="/src/strong.css">
+<link rel="stylesheet" href="/src/mask-night.css">
+<link rel="stylesheet" href="/src/strong-decoration.css">
+<link rel="stylesheet" href="/src/card-block.css">
 
 
 
@@ -276,19 +277,19 @@
 <p>原文发布于2023-03-05。</p>
 <h2 id="rand"><a href="#rand" class="headerlink" title="rand()"></a>rand()</h2><p><code>rand()</code>生成的随机数在<code>0～RAND_MAX</code>之间。<code>RAND_MAX</code>被定义在<code>stdlib.h</code>中，其值通常是<code>INT_MAX</code>。</p>
 <p>想要限定范围，使用<code>%</code>即可。</p>
-<figure><div class="code-wrapper"><pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;stdlib.h></span> <span class="token comment">// 提供rand()的原型</span></span>
+<figure><div class="code-wrapper"><pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;stdlib.h></span>				<span class="token comment">// 提供rand()的原型</span></span>
 <span class="token keyword">int</span> <span class="token function">rollem</span><span class="token punctuation">(</span><span class="token keyword">int</span> sides<span class="token punctuation">)</span>
 <span class="token punctuation">&#123;</span>
     <span class="token keyword">int</span> roll<span class="token punctuation">;</span>
-    roll <span class="token operator">=</span> <span class="token function">rand</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">%</span> sides <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span> <span class="token comment">// 将随机数限定在sides范围内</span>
+    roll <span class="token operator">=</span> <span class="token function">rand</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">%</span> sides <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span>	<span class="token comment">// 将随机数限定在sides范围内</span>
     <span class="token keyword">return</span> roll<span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div></figure>
 
 <h2 id="srand"><a href="#srand" class="headerlink" title="srand()"></a>srand()</h2><p>每次程序运行时，<code>rand()</code>的种子都相同，所以需要对其进行重置。</p>
-<figure><div class="code-wrapper"><pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;stdlib.h></span> <span class="token comment">// 为库函数srand()提供原型</span></span>
-<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;time.h></span> <span class="token comment">// 为time()提供原型</span></span>
+<figure><div class="code-wrapper"><pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;stdlib.h></span>		<span class="token comment">// 为库函数srand()提供原型</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;time.h></span>		<span class="token comment">// 为time()提供原型</span></span>
 
-<span class="token function">srand</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token keyword">unsigned</span> <span class="token keyword">int</span><span class="token punctuation">)</span> <span class="token function">time</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 随机种子</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></div></figure>
+<span class="token function">srand</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token keyword">unsigned</span> <span class="token keyword">int</span><span class="token punctuation">)</span> <span class="token function">time</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>	<span class="token comment">// 随机种子</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></div></figure>
 
 <p><code>time()</code>返回值的类型名是<code>time_t</code>，具体类型与系统有关。这里使用了强制类型转换。</p>
 
